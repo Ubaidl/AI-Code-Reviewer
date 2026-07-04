@@ -10,11 +10,10 @@ import {codeanalyzerouter} from "../src/Router/code.route.js";
 
 
 
-const app = express();
 app.use(cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true
-}));
+  origin: ["https://ai-code-reviewer.vercel.app"],
+  credentials: true
+}))
 app.use(express.json());
 app.use(cookieParser());
 
