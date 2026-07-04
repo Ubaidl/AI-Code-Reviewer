@@ -12,8 +12,8 @@ import {codeanalyzerouter} from "../src/Router/code.route.js";
 
 const app = express();
 app.use(cors({
-    origin: "http://localhost:5173", // your Vite frontend URL
-    credentials: true // only needed if you're sending cookies/auth headers
+    origin: process.env.CLIENT_URL,
+    credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser());
