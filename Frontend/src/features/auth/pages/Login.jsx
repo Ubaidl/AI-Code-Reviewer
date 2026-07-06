@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useAuth } from "../hooks/useAuth"
 import { useNavigate } from "react-router";
+import { Link } from "react-router";
 import "../style/auth.css";
 
 const Login = ()=> {
@@ -61,7 +62,7 @@ const handlesubmit = async(e)=>{
         </form>
 
         <p className="auth-card__footer">
-          Don't have an account? <a href="/register">Register</a>
+          Don't have an account? <Link to="/register">Register</Link>
         </p>
       </div>
     </div>
