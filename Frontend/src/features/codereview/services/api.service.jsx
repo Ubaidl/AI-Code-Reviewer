@@ -5,7 +5,7 @@ const API_URL = `${import.meta.env.VITE_API_URL}/api/code`;
 export const ReviewCode = async ({ language, code }) => {
     try {
         const response = await axios.post(
-            `${API_URL}analyze`,
+            `${API_URL}/analyze`,
             {
                 language,
                 code,
