@@ -4,7 +4,7 @@ const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 export const register = async ({username,email,password})=>{
     console.log(username, email, password);
     try{
-        const response = await axios.post (`${API_URL}register`,
+        const response = await axios.post(`${API_URL}/register`,
              {
                 username,
                 email,
@@ -30,7 +30,7 @@ export const register = async ({username,email,password})=>{
 export const Login = async ({email,password})=>{
      console.log(email, password);
     try{
-        const response = await axios.post (`${API_URL}login`,
+        const response = await axios.post(`${API_URL}/login`,
              {
                 email,
                 password
@@ -53,7 +53,7 @@ export const Login = async ({email,password})=>{
 
 export const logout = async ()=>{
     try{
-        const response = await axios.get(`${API_URL}logout`, {withCredentials: true});
+       const response = await axios.get(`${API_URL}/logout`, {withCredentials: true});
         if(!response.data){
             throw new Error("No data received from the server");
 
