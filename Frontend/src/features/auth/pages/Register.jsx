@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router";
-import "../style/Auth.css";
+import "../style/auth.css";
 
 const  Register= ()=> {
   const navigate = useNavigate();
