@@ -24,7 +24,7 @@ app.use(cors({
     "http://localhost:5174",
     "https://ai-code-reviewer-weld-tau.vercel.app"
   ],
-  credentials: true,
+  credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser());
