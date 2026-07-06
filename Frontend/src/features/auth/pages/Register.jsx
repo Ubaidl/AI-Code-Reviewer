@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router";
+import { Link } from "react-router";
 import "../style/auth.css";
 
 const  Register= ()=> {
@@ -76,7 +77,7 @@ const  Register= ()=> {
         </form>
 
         <p className="auth-card__footer">
-          Already have an account? <a href="/login">Log in</a>
+          Already have an account? <Link to="/login">Log in</Link>
         </p>
       </div>
     </div>
