@@ -16,8 +16,14 @@ const app = express();
 //   "https://ai-code-reviewer-kappa-three.vercel.app"
 // ];
 
+
+
 app.use(cors({
-  origin: "https://ai-code-reviewer-kappa-three.vercel.app",
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://ai-code-reviewer-4nei7l8nj-loneubaid251-6392s-projects.vercel.app/"
+  ],
   credentials: true,
 }));
 app.use(express.json());
