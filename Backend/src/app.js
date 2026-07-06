@@ -11,9 +11,14 @@ import {codeanalyzerouter} from "../src/Router/code.route.js";
 
 
 const app = express();
+// const allowedOrigins = [
+//   "http://localhost:5174",
+//   "https://ai-code-reviewer-kappa-three.vercel.app"
+// ];
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    credentials: true
+  origin: "https://ai-code-reviewer-kappa-three.vercel.app",
+  credentials: true,
 }));
 app.use(express.json());
 app.use(cookieParser());
