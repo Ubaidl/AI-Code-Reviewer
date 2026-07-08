@@ -22,7 +22,8 @@ const  Register= ()=> {
 
     }
     catch(error){
-      alert("registration failed");
+      const message = error.response?.data?.message || "Registration failed";
+    alert(message);
     }
     
 
