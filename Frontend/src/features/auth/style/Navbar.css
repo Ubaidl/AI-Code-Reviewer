@@ -1,84 +1,86 @@
 .navbar {
-  height: 74px;
-  background: #fffaf0;
-  border-bottom: 3px solid #1a1a2e;
+  height: 72px;
+  background: #f7f8fa;
+  border-bottom: 1px solid #e2e4e8;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 48px;
 }
 
 .navbar-logo a {
-  color: #1a1a2e;
+  color: #14161a;
   text-decoration: none;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  border: 2px solid #1a1a2e;
-  padding: 6px 14px;
-  border-radius: 6px;
-  box-shadow: 3px 3px 0 #f582ae;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-logo a::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: #3358d4;
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
 }
 
 .navbar-links a {
   text-decoration: none;
-  color: #1a1a2e;
-  font-size: 15px;
-  font-weight: 600;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
   padding-bottom: 3px;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .navbar-links a:hover {
-  color: #f582ae;
-  border-bottom-color: #f582ae;
+  color: #14161a;
+  border-bottom-color: #3358d4;
 }
 
 .navbar-links button {
-  background: #8bd3dd;
-  color: #1a1a2e;
-  border: 2.5px solid #1a1a2e;
-  padding: 9px 20px;
+  background: #14161a;
+  color: #f7f8fa;
+  border: none;
+  padding: 9px 18px;
   border-radius: 6px;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 
 .navbar-links button:hover {
-  background: #f582ae;
-  transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0 #1a1a2e;
+  background: #3358d4;
 }
 
 .navbar-links button:active {
-  transform: translate(0, 0);
-  box-shadow: none;
+  transform: scale(0.97);
 }
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 0 18px;
-    height: 64px;
+    padding: 0 20px;
+    height: 60px;
   }
 
   .navbar-logo a {
-    font-size: 18px;
-    padding: 4px 10px;
+    font-size: 15px;
   }
 
   .navbar-links {
-    gap: 14px;
+    gap: 16px;
   }
 
   .navbar-links a {
