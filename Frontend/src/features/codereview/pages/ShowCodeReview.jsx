@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Codecontext } from "../codeanalyzer.context";
- import "../style/result.scss"
+import "../style/result.scss"
 
 const Result = () => {
   const { analysis } = useContext(Codecontext);
@@ -15,7 +15,7 @@ const Result = () => {
   }
 
   return (
-    <div>
+    <div className="result-page">
       <h1>Code Analysis Result</h1>
 
       <hr />
