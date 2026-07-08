@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useCodeReview } from "../hooks/useCodeAnalysis";
 import { useNavigate } from "react-router";
-// import "../style/Analyzer.css"
+ import "../style/Analyzer.scss"
 
 const Analyzer = () => {
   const navigate = useNavigate();

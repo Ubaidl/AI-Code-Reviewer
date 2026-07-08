@@ -1,0 +1,190 @@
+// ============================================
+// auth.scss — shared styles for Login & Register
+// Import this once in either component:
+//   import "../style/auth.scss";
+// ============================================
+
+// ---- Tokens ----
+$color-bg:        #0f1115;
+$color-surface:   #161a21;
+$color-border:    #262b35;
+$color-border-hi: #3a4150;
+$color-text:      #e7e9ee;
+$color-text-dim:  #8b93a3;
+$color-accent:    #5eead4; // teal — reads as "terminal signal", fits a dev-tool product
+$color-accent-dim:#2c8a7a;
+$color-danger:    #ff6b6b;
+
+$font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+$font-body:    'Inter', 'Segoe UI', sans-serif;
+$font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+$radius: 10px;
+$transition: 180ms ease;
+
+// ---- Page ----
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba($color-accent, 0.06), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba($color-accent, 0.05), transparent 40%),
+    $color-bg;
+  font-family: $font-body;
+  color: $color-text;
+}
+
+// ---- Card ----
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: 40px 36px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  position: relative;
+
+  // signature: a thin "terminal cursor" tick before the eyebrow
+  &::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 36px;
+    width: 10px;
+    height: 2px;
+    background: $color-accent;
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-left: 22px;
+    font-family: $font-mono;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-accent;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: $color-text;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $color-text-dim;
+    margin: 0 0 28px;
+  }
+
+  &__footer {
+    margin: 24px 0 0;
+    font-size: 13px;
+    color: $color-text-dim;
+    text-align: center;
+
+    a {
+      color: $color-accent;
+      text-decoration: none;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ---- Form ----
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  &__submit {
+    margin-top: 6px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: $radius - 4px;
+    background: $color-accent;
+    color: #06110f;
+    font-family: $font-display;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: transform $transition, background $transition, box-shadow $transition;
+
+    &:hover {
+      background: lighten($color-accent, 6%);
+      box-shadow: 0 6px 18px rgba($color-accent, 0.25);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: 3px;
+    }
+  }
+}
+
+// ---- Field ----
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 12px;
+    color: $color-text-dim;
+    letter-spacing: 0.03em;
+  }
+
+  &__input {
+    background: #0d1015;
+    border: 1px solid $color-border;
+    border-radius: $radius - 4px;
+    padding: 11px 14px;
+    font-size: 14px;
+    color: $color-text;
+    font-family: $font-body;
+    transition: border-color $transition, box-shadow $transition;
+
+    &::placeholder {
+      color: #565d6d;
+    }
+
+    &:hover {
+      border-color: $color-border-hi;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent-dim;
+      box-shadow: 0 0 0 3px rgba($color-accent, 0.15);
+    }
+  }
+}
+
+// ---- Responsive ----
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 32px 24px;
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// import "../style/Home.css"
+ import "../style/Home.scss"
 import Navbar from  "../Components/Navbar.jsx"
 export default function Home() {
   return (

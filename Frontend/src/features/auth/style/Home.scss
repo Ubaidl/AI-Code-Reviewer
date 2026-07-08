@@ -1,0 +1,136 @@
+// ============================================
+// Home.scss — CodeAnalyzer landing page
+// Neo-brutalist theme: hard borders, offset shadows,
+// no radius, flat saturated accent.
+// Import in Home.jsx:  import "../style/Home.scss";
+// ============================================
+
+// ---- Tokens ----
+$color-bg:      #fdf6e9; // warm paper
+$color-ink:     #111111;
+$color-accent:  #ff5e2c; // signal orange — "error / attention" from a linter's palette
+$color-accent-2:#3a6df0; // secondary accent for variety across cards
+$color-mute:    #6b6558;
+$color-card:    #ffffff;
+
+$border-w: 3px;
+$shadow-offset: 6px;
+
+$font-display: 'Space Grotesk', 'Archivo Black', 'Arial Black', sans-serif;
+$font-body: 'Space Grotesk', 'Inter', sans-serif;
+$font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+@mixin hard-shadow($color: $color-ink, $x: $shadow-offset, $y: $shadow-offset) {
+  box-shadow: $x $y 0 0 $color;
+}
+
+// ---- Root ----
+.ca-root {
+  background: $color-bg;
+  color: $color-ink;
+  font-family: $font-body;
+  min-height: 100vh;
+  padding: 0 24px 64px;
+}
+
+// ---- Intro ----
+.ca-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 0 56px;
+  text-align: center;
+
+  h1 {
+    font-family: $font-display;
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+    display: inline-block;
+    position: relative;
+
+    // signature: underline drawn like a highlighted diff line
+    &::after {
+      content: "";
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      bottom: -6px;
+      height: 12px;
+      background: $color-accent;
+      z-index: -1;
+      transform: skew(-8deg);
+    }
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: $color-mute;
+    margin: 0 auto;
+    max-width: 560px;
+  }
+}
+
+// ---- Cards ----
+.ca-cards {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 620px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ca-card {
+  background: $color-card;
+  border: $border-w solid $color-ink;
+  padding: 28px 24px;
+  @include hard-shadow();
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  cursor: default;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    @include hard-shadow($color-ink, $shadow-offset + 2, $shadow-offset + 2);
+  }
+
+  h3 {
+    font-family: $font-display;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: $color-mute;
+    margin: 0;
+  }
+
+  // alternate accent stripe per position for a bit of rhythm, not randomness
+  &:nth-child(3n+1) { border-top: 6px solid $color-accent; }
+  &:nth-child(3n+2) { border-top: 6px solid $color-accent-2; }
+  &:nth-child(3n)   { border-top: 6px solid $color-ink; }
+}
+
+// ---- Footer ----
+.ca-footer {
+  max-width: 1080px;
+  margin: 64px auto 0;
+  padding-top: 20px;
+  border-top: $border-w solid $color-ink;
+  text-align: center;
+  font-family: $font-mono;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: $color-mute;
+}

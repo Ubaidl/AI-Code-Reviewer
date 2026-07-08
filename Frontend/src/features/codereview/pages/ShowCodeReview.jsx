@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Codecontext } from "../codeanalyzer.context";
-// import "../style/result.css"
+ import "../style/result.scss"
 
 const Result = () => {
   const { analysis } = useContext(Codecontext);

@@ -1,0 +1,135 @@
+// ============================================
+// Navbar.scss — CodeAnalyzer nav bar
+// Same neo-brutalist tokens as Home.scss:
+// hard borders, no radius, flat accent, offset shadow on scroll.
+// Import as:  import "../style/Navbar.scss";
+// ============================================
+
+// ---- Tokens (kept in sync with Home.scss) ----
+$color-bg:      #fdf6e9;
+$color-ink:     #111111;
+$color-accent:  #ff5e2c;
+$color-accent-2:#3a6df0;
+$color-mute:    #6b6558;
+$color-card:    #ffffff;
+
+$border-w: 3px;
+
+$font-display: 'Space Grotesk', 'Archivo Black', 'Arial Black', sans-serif;
+$font-body: 'Space Grotesk', 'Inter', sans-serif;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 28px;
+  background: $color-card;
+  border-bottom: $border-w solid $color-ink;
+  font-family: $font-body;
+}
+
+.navbar-logo {
+  a {
+    font-family: $font-display;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: $color-ink;
+    text-decoration: none;
+    position: relative;
+
+    // signature: same skewed highlight tick used on the Home hero, scaled down
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 4px;
+      width: 6px;
+      height: 6px;
+      background: $color-accent;
+      transform: skew(-8deg);
+    }
+  }
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  a {
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-ink;
+    text-decoration: none;
+    padding: 8px 14px;
+    border: $border-w solid transparent;
+    transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+
+    &:hover {
+      border-color: $color-ink;
+      background: $color-bg;
+      transform: translate(-1px, -1px);
+    }
+
+    &.active,
+    &[aria-current="page"] {
+      border-color: $color-ink;
+      background: $color-accent-2;
+      color: $color-card;
+    }
+  }
+
+  button {
+    font-family: $font-body;
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-card;
+    background: $color-accent;
+    border: $border-w solid $color-ink;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 0 $color-ink;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+
+    &:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 0 $color-ink;
+    }
+
+    &:active {
+      transform: translate(0, 0);
+      box-shadow: 1px 1px 0 0 $color-ink;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent-2;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// ---- Responsive ----
+@media (max-width: 560px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 14px 18px;
+    gap: 12px;
+  }
+
+  .navbar-links {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 4px;
+
+    a,
+    button {
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  }
+}
