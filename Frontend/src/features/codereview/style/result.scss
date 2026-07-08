@@ -71,11 +71,6 @@ $font-mono: 'JetBrains Mono', 'Courier New', monospace;
     margin: 0;
   }
 
-  // Score gets its own callout treatment
-  > h2 + p:has(+ h2) {
-    // fallback handled below via adjacent selector for browsers without :has
-  }
-
   ul {
     margin: 0;
     padding: 0;
